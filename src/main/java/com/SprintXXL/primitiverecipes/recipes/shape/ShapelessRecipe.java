@@ -1,20 +1,20 @@
 package com.SprintXXL.primitiverecipes.recipes.shape;
 
-import com.SprintXXL.primitiverecipes.recipeobjects.RecipeObjectDefinition;
+import com.SprintXXL.primitiverecipes.resources.ResourceDefinition;
 
 import java.util.List;
 
 public class ShapelessRecipe implements RecipeShape {
 
-    private final List<RecipeObjectDefinition> ingredients;
+    private final List<ResourceDefinition> ingredients;
 
     public ShapelessRecipe(
-            List<RecipeObjectDefinition> ingredients
+            List<ResourceDefinition> ingredients
     ) {
         this.ingredients = ingredients;
     }
 
-    public List<RecipeObjectDefinition> getIngredients() {
+    public List<ResourceDefinition> getIngredients() {
         return ingredients;
     }
 }

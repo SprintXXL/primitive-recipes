@@ -2,9 +2,7 @@ package com.SprintXXL.primitiverecipes.recipes;
 
 import java.util.*;
 
-import static com.SprintXXL.primitiverecipes.recipes.ModRecipes.*;
-
-public class RecipeRegistry {
+public final class RecipeRegistry {
 
     private RecipeRegistry() {}
 
@@ -29,6 +27,6 @@ public class RecipeRegistry {
 
     public static void init() {
 
-        register(TEST);
+        ModRecipes.initModRecipes();
     }
 }

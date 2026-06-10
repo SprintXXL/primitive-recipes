@@ -1,0 +1,5 @@
+primitivetools:flint_knife
+primitivetools:flint_pickaxe
+primitivetools:flint_spade
+primitivetools:flint_hoe
+primitivetools:flint_hatchet

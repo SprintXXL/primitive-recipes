@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "primitivematerials:iron_ingot"
+    }
+  ],
+  "result": {
+    "item": "primitivematerials:iron_nugget",
+    "count": 9
+  }
+}

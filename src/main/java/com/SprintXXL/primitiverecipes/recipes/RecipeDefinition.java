@@ -1,19 +1,19 @@
 package com.SprintXXL.primitiverecipes.recipes;
 
-import com.SprintXXL.primitiverecipes.recipeobjects.RecipeObjectDefinition;
+import com.SprintXXL.primitiverecipes.resources.ResourceDefinition;
 import com.SprintXXL.primitiverecipes.recipes.shape.RecipeShape;
 
 public class RecipeDefinition {
 
     private final String id;
     private final RecipeShape shape;
-    private final RecipeObjectDefinition output;
+    private final ResourceDefinition output;
     private final int count;
 
     public RecipeDefinition(
             String id,
             RecipeShape shape,
-            RecipeObjectDefinition output,
+            ResourceDefinition output,
             int count
     ) {
         this.id = id;
@@ -30,7 +30,7 @@ public class RecipeDefinition {
         return shape;
     }
 
-    public RecipeObjectDefinition getOutput() {
+    public ResourceDefinition getOutput() {
         return output;
     }
 

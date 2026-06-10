@@ -1,0 +1,8 @@
+primitiveutilitytools:hammer
+primitiveutilitytools:mortar
+primitiveutilitytools:saw
+primitiveutilitytools:screwdriver
+primitiveutilitytools:knife
+primitiveutilitytools:file
+primitiveutilitytools:crowbar
+primitiveutilitytools:wrench
