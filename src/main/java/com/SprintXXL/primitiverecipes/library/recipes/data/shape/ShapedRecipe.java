@@ -1,17 +1,17 @@
-package com.SprintXXL.primitiverecipes.recipes.shape;
+package com.SprintXXL.primitiverecipes.library.recipes.data.shape;
 
-import com.SprintXXL.primitiverecipes.resources.ResourceDefinition;
+import com.SprintXXL.primitiverecipes.library.recipes.data.RecipeIngredient;
 
 import java.util.Map;
 
 public class ShapedRecipe implements RecipeShape {
 
     private final String[] pattern;
-    private final Map<Character, ResourceDefinition> keys;
+    private final Map<Character, RecipeIngredient> keys;
 
     public ShapedRecipe(
             String[] pattern,
-            Map<Character, ResourceDefinition> keys
+            Map<Character, RecipeIngredient> keys
     ) {
         this.pattern = pattern;
         this.keys = keys;
@@ -21,7 +21,7 @@ public class ShapedRecipe implements RecipeShape {
         return pattern;
     }
 
-    public Map<Character, ResourceDefinition> getKeys() {
+    public Map<Character, RecipeIngredient> getKeys() {
         return keys;
     }
 }

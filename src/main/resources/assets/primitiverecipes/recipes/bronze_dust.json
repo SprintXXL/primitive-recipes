@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CT",
+    "CC"
+  ],
+  "key": {
+    "T": {
+      "item": "primitivematerials:tin_dust"
+    },
+    "C": {
+      "item": "primitivematerials:copper_dust"
+    }
+  },
+  "result": {
+    "item": "primitivematerials:bronze_dust",
+    "count": 3
+  }
+}

@@ -1,6 +1,6 @@
-package com.SprintXXL.primitiverecipes.resources;
+package com.SprintXXL.primitiverecipes.library.resources;
 
-import static com.SprintXXL.primitiverecipes.resources.ResourceRegistry.register;
+import static com.SprintXXL.primitiverecipes.library.resources.ResourceRegistry.register;
 
 public final class ModResources {
 

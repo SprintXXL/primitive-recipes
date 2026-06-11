@@ -1,4 +1,4 @@
-package com.SprintXXL.primitiverecipes.resources;
+package com.SprintXXL.primitiverecipes.library.resources;
 
 public enum ResourceType {
 

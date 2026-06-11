@@ -1,6 +1,6 @@
 package com.SprintXXL.primitiverecipes.util.resourcegen;
 
-import com.SprintXXL.primitiverecipes.resources.ResourceType;
+import com.SprintXXL.primitiverecipes.library.resources.ResourceType;
 
 public class ResourceTypeResolver {
 

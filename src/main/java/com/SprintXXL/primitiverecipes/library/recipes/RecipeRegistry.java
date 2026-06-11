@@ -1,4 +1,4 @@
-package com.SprintXXL.primitiverecipes.recipes;
+package com.SprintXXL.primitiverecipes.library.recipes;
 
 import java.util.*;
 

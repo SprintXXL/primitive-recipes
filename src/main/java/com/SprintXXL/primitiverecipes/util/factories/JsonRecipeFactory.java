@@ -1,12 +1,14 @@
-package com.SprintXXL.primitiverecipes.util;
+package com.SprintXXL.primitiverecipes.util.factories;
 
-import com.SprintXXL.primitiverecipes.recipes.ModRecipes;
-import com.SprintXXL.primitiverecipes.recipes.shape.ShapedRecipe;
-import com.SprintXXL.primitiverecipes.resources.ResourceDefinition;
-import com.SprintXXL.primitiverecipes.recipes.RecipeDefinition;
-import com.SprintXXL.primitiverecipes.recipes.RecipeRegistry;
-import com.SprintXXL.primitiverecipes.recipes.shape.RecipeShape;
-import com.SprintXXL.primitiverecipes.recipes.shape.ShapelessRecipe;
+import com.SprintXXL.primitiverecipes.library.recipes.ModRecipes;
+import com.SprintXXL.primitiverecipes.library.recipes.RecipeType;
+import com.SprintXXL.primitiverecipes.library.recipes.data.RecipeIngredient;
+import com.SprintXXL.primitiverecipes.library.recipes.data.json.JsonRecipeData;
+import com.SprintXXL.primitiverecipes.library.recipes.data.shape.ShapedRecipe;
+import com.SprintXXL.primitiverecipes.library.recipes.RecipeDefinition;
+import com.SprintXXL.primitiverecipes.library.recipes.RecipeRegistry;
+import com.SprintXXL.primitiverecipes.library.recipes.data.shape.RecipeShape;
+import com.SprintXXL.primitiverecipes.library.recipes.data.shape.ShapelessRecipe;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -19,13 +21,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
-public class JSONRecipeGenerator {
+public class JsonRecipeFactory {
 
     public static void main(String[] args) {
 
         ModRecipes.initModRecipes();
 
         for (RecipeDefinition recipe : RecipeRegistry.getAllRecipes()) {
+
+            if (recipe.getType() != RecipeType.JSON) {
+                continue;
+            }
 
             generateRecipe(recipe);
         }
@@ -34,7 +40,7 @@ public class JSONRecipeGenerator {
     private static void generateRecipe(RecipeDefinition recipe) {
 
         Path path = Paths.get(
-                "src/main/resources/assets/primitiverecipes/recipes",
+                "src/main/resources/assets/primitiverecipes/library",
                 recipe.getID() + ".json"
         );
 
@@ -45,20 +51,22 @@ public class JSONRecipeGenerator {
 
     private static String buildJSON(RecipeDefinition recipe) {
 
-        RecipeShape shape = recipe.getShape();
+        JsonRecipeData data = (JsonRecipeData) recipe.getData();
+
+        RecipeShape shape = data.getShape();
 
         if (shape instanceof ShapelessRecipe) {
-            return buildShapelessJSON(recipe, (ShapelessRecipe) shape);
+            return buildShapelessJSON(data, (ShapelessRecipe) shape);
         }
 
         if (shape instanceof ShapedRecipe) {
-            return buildShapedJSON(recipe, (ShapedRecipe) shape);
+            return buildShapedJSON(data, (ShapedRecipe) shape);
         }
 
         throw new IllegalArgumentException("Unknown recipe shape: " + shape);
     }
 
-    private static String buildShapelessJSON(RecipeDefinition recipe, ShapelessRecipe shape) {
+    private static String buildShapelessJSON(JsonRecipeData data, ShapelessRecipe shape) {
 
         JsonObject json = new JsonObject();
 
@@ -69,13 +77,13 @@ public class JSONRecipeGenerator {
 
         JsonArray ingredients = new JsonArray();
 
-        for (ResourceDefinition ingredient : shape.getIngredients()) {
+        for (RecipeIngredient ingredient : shape.getIngredients()) {
 
             JsonObject ingredientJson = new JsonObject();
 
             ingredientJson.addProperty(
                     "item",
-                    ingredient.getID()
+                    ingredient.getResource().getID()
             );
 
             ingredients.add(ingredientJson);
@@ -90,12 +98,12 @@ public class JSONRecipeGenerator {
 
         result.addProperty(
                 "item",
-                recipe.getOutput().getID()
+                data.getOutput().getID()
         );
 
         result.addProperty(
                 "count",
-                recipe.getCount()
+                data.getCount()
         );
 
         json.add(
@@ -108,7 +116,7 @@ public class JSONRecipeGenerator {
         return gson.toJson(json);
     }
 
-    private static String buildShapedJSON(RecipeDefinition recipe, ShapedRecipe shape) {
+    private static String buildShapedJSON(JsonRecipeData data, ShapedRecipe shape) {
 
         JsonObject json = new JsonObject();
 
@@ -130,17 +138,17 @@ public class JSONRecipeGenerator {
 
         JsonObject key = new JsonObject();
 
-        for (Map.Entry<Character, ResourceDefinition> entry : shape.getKeys().entrySet()) {
+        for (Map.Entry<Character, RecipeIngredient> entry : shape.getKeys().entrySet()) {
 
             Character symbol = entry.getKey();
 
-            ResourceDefinition resource = entry.getValue();
+            RecipeIngredient resource = entry.getValue();
 
             JsonObject ingredient = new JsonObject();
 
             ingredient.addProperty(
                     "item",
-                    resource.getID()
+                    resource.getResource().getID()
             );
 
             key.add(
@@ -158,12 +166,12 @@ public class JSONRecipeGenerator {
 
         result.addProperty(
                 "item",
-                recipe.getOutput().getID()
+                data.getOutput().getID()
         );
 
         result.addProperty(
                 "count",
-                recipe.getCount()
+                data.getCount()
         );
 
         json.add(

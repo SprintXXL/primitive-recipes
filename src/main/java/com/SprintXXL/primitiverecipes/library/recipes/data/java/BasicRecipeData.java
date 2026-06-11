@@ -1,29 +1,23 @@
-package com.SprintXXL.primitiverecipes.recipes;
+package com.SprintXXL.primitiverecipes.library.recipes.data.java;
 
-import com.SprintXXL.primitiverecipes.resources.ResourceDefinition;
-import com.SprintXXL.primitiverecipes.recipes.shape.RecipeShape;
+import com.SprintXXL.primitiverecipes.library.recipes.data.RecipeData;
+import com.SprintXXL.primitiverecipes.library.recipes.data.shape.RecipeShape;
+import com.SprintXXL.primitiverecipes.library.resources.ResourceDefinition;
 
-public class RecipeDefinition {
+public class BasicRecipeData implements RecipeData {
 
-    private final String id;
     private final RecipeShape shape;
     private final ResourceDefinition output;
     private final int count;
 
-    public RecipeDefinition(
-            String id,
+    public BasicRecipeData(
             RecipeShape shape,
             ResourceDefinition output,
             int count
     ) {
-        this.id = id;
         this.shape = shape;
         this.output = output;
         this.count = count;
-    }
-
-    public String getID() {
-        return id;
     }
 
     public RecipeShape getShape() {
