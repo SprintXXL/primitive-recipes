@@ -1,6 +1,6 @@
-package com.SprintXXL.primitiverecipes.library.recipes.data.shape;
+package com.SprintXXL.primitiverecipes.recipes.crafting.data.shape;
 
-import com.SprintXXL.primitiverecipes.library.recipes.data.RecipeIngredient;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.RecipeIngredient;
 
 import java.util.List;
 

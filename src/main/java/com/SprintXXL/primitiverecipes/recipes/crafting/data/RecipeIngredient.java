@@ -1,6 +1,6 @@
-package com.SprintXXL.primitiverecipes.library.recipes.data;
+package com.SprintXXL.primitiverecipes.recipes.crafting.data;
 
-import com.SprintXXL.primitiverecipes.library.resources.ResourceDefinition;
+import com.SprintXXL.primitiverecipes.resources.ResourceDefinition;
 
 public class RecipeIngredient {
 

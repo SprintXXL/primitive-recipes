@@ -71,7 +71,7 @@ public class ResourceGenerator {
     }
 
     private static String buildResourceIDsFile(String body) {
-        return "package com.SprintXXL.primitiverecipes.library.resources;\n\n" +
+        return "package com.SprintXXL.primitiverecipes.resources;\n\n" +
                 "public final class ResourceIDs {\n\n" +
                 "    private ResourceIDs() {}\n\n" +
                 body +
@@ -79,8 +79,8 @@ public class ResourceGenerator {
     }
 
     private static String buildModResourcesFile(String definitions, String registers) {
-        return "package com.SprintXXL.primitiverecipes.library.resources;\n\n" +
-                "import static com.SprintXXL.primitiverecipes.library.resources.ResourceRegistry.register;\n\n" +
+        return "package com.SprintXXL.primitiverecipes.resources;\n\n" +
+                "import static com.SprintXXL.primitiverecipes.resources.ResourceRegistry.register;\n\n" +
                 "public final class ModResources {\n\n" +
                 "    private ModResources() {}\n\n" +
                 definitions +

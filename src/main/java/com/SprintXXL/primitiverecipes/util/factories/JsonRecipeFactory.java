@@ -1,14 +1,14 @@
 package com.SprintXXL.primitiverecipes.util.factories;
 
-import com.SprintXXL.primitiverecipes.library.recipes.ModRecipes;
-import com.SprintXXL.primitiverecipes.library.recipes.RecipeType;
-import com.SprintXXL.primitiverecipes.library.recipes.data.RecipeIngredient;
-import com.SprintXXL.primitiverecipes.library.recipes.data.json.JsonRecipeData;
-import com.SprintXXL.primitiverecipes.library.recipes.data.shape.ShapedRecipe;
-import com.SprintXXL.primitiverecipes.library.recipes.RecipeDefinition;
-import com.SprintXXL.primitiverecipes.library.recipes.RecipeRegistry;
-import com.SprintXXL.primitiverecipes.library.recipes.data.shape.RecipeShape;
-import com.SprintXXL.primitiverecipes.library.recipes.data.shape.ShapelessRecipe;
+import com.SprintXXL.primitiverecipes.recipes.crafting.ModCraftingRecipes;
+import com.SprintXXL.primitiverecipes.recipes.crafting.CRType;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.RecipeIngredient;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.json.JsonRecipeData;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.shape.ShapedRecipe;
+import com.SprintXXL.primitiverecipes.recipes.crafting.CraftingRecipe;
+import com.SprintXXL.primitiverecipes.recipes.RecipeRegistry;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.shape.RecipeShape;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.shape.ShapelessRecipe;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -25,11 +25,11 @@ public class JsonRecipeFactory {
 
     public static void main(String[] args) {
 
-        ModRecipes.initModRecipes();
+        ModCraftingRecipes.initModCraftingRecipes();
 
-        for (RecipeDefinition recipe : RecipeRegistry.getAllRecipes()) {
+        for (CraftingRecipe recipe : RecipeRegistry.getAllRecipes()) {
 
-            if (recipe.getType() != RecipeType.JSON) {
+            if (recipe.getType() != CRType.JSON) {
                 continue;
             }
 
@@ -37,10 +37,10 @@ public class JsonRecipeFactory {
         }
     }
 
-    private static void generateRecipe(RecipeDefinition recipe) {
+    private static void generateRecipe(CraftingRecipe recipe) {
 
         Path path = Paths.get(
-                "src/main/resources/assets/primitiverecipes/library",
+                "src/main/resources/assets/primitiverecipes/recipes",
                 recipe.getID() + ".json"
         );
 
@@ -49,7 +49,7 @@ public class JsonRecipeFactory {
         writeFile(path, json);
     }
 
-    private static String buildJSON(RecipeDefinition recipe) {
+    private static String buildJSON(CraftingRecipe recipe) {
 
         JsonRecipeData data = (JsonRecipeData) recipe.getData();
 

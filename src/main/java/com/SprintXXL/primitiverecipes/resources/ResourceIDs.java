@@ -1,4 +1,4 @@
-package com.SprintXXL.primitiverecipes.library.resources;
+package com.SprintXXL.primitiverecipes.resources;
 
 public final class ResourceIDs {
 

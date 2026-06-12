@@ -1,7 +1,7 @@
 package com.SprintXXL.primitiverecipes;
 
-import com.SprintXXL.primitiverecipes.library.recipes.RecipeRegistry;
-import com.SprintXXL.primitiverecipes.library.resources.ResourceRegistry;
+import com.SprintXXL.primitiverecipes.recipes.RecipeRegistry;
+import com.SprintXXL.primitiverecipes.resources.ResourceRegistry;
 import com.SprintXXL.primitiverecipes.util.resourcegen.DumpResources;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

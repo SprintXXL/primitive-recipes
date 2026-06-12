@@ -1,13 +1,13 @@
-package com.SprintXXL.primitiverecipes.library.recipes.recipes;
+package com.SprintXXL.primitiverecipes.recipes.crafting.recipes;
 
-import com.SprintXXL.primitiverecipes.library.recipes.RecipeDefinition;
-import com.SprintXXL.primitiverecipes.library.recipes.data.RemainingBehavior;
-import com.SprintXXL.primitiverecipes.library.recipes.data.java.BasicRecipeData;
-import com.SprintXXL.primitiverecipes.library.recipes.data.RecipeIngredient;
-import com.SprintXXL.primitiverecipes.library.recipes.data.shape.RecipeShape;
-import com.SprintXXL.primitiverecipes.library.recipes.data.shape.ShapedRecipe;
-import com.SprintXXL.primitiverecipes.library.recipes.data.shape.ShapelessRecipe;
-import com.SprintXXL.primitiverecipes.library.resources.ResourceResolver;
+import com.SprintXXL.primitiverecipes.recipes.crafting.CraftingRecipe;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.RemainingBehavior;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.java.BasicRecipeData;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.RecipeIngredient;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.shape.RecipeShape;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.shape.ShapedRecipe;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.shape.ShapelessRecipe;
+import com.SprintXXL.primitiverecipes.resources.ResourceResolver;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,10 +24,10 @@ import static com.SprintXXL.primitiverecipes.Reference.MODID;
 
 public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
-    private final RecipeDefinition definition;
+    private final CraftingRecipe definition;
     private final BasicRecipeData data;
 
-    public BasicJavaRecipe(RecipeDefinition definition) {
+    public BasicJavaRecipe(CraftingRecipe definition) {
 
         this.definition = definition;
         this.data = (BasicRecipeData) definition.getData();

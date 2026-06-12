@@ -1,8 +1,8 @@
-package com.SprintXXL.primitiverecipes.library.recipes.data.java;
+package com.SprintXXL.primitiverecipes.recipes.crafting.data.java;
 
-import com.SprintXXL.primitiverecipes.library.recipes.data.RecipeData;
-import com.SprintXXL.primitiverecipes.library.recipes.data.shape.RecipeShape;
-import com.SprintXXL.primitiverecipes.library.resources.ResourceDefinition;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.RecipeData;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.shape.RecipeShape;
+import com.SprintXXL.primitiverecipes.resources.ResourceDefinition;
 
 public class BasicRecipeData implements RecipeData {
 
