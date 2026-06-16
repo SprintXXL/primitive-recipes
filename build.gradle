@@ -130,6 +130,17 @@ sourceSets {
             }
         }
     }
+    tools {
+        java {
+            srcDir 'src/tools/java'
+        }
+    }
+}
+
+tasks.register('runResourceGenerator', JavaExec) {
+    group = 'tools'
+    classpath = sourceSets.tools.runtimeClasspath
+    mainClass = 'com.SprintXXL.resourcegenerator.ResourceGenerator'
 }
 
 idea {

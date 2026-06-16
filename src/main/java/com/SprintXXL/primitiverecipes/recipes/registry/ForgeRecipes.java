@@ -1,11 +1,7 @@
 package com.SprintXXL.primitiverecipes.recipes.registry;
 
-import com.SprintXXL.primitiverecipes.recipes.shared.RecipeRuntime;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.data.RecipeData;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.data.external.ExternalRecipeData;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.data.mod.BasicRecipeData;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.data.mod.CustomRecipeData;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.definitions.CraftingRecipe;
+import com.SprintXXL.primitiverecipes.recipes.shared.Runtime;
+import com.SprintXXL.primitiverecipes.recipes.crafting.CraftingRecipe;
 import com.SprintXXL.primitiverecipes.recipes.removal.RecipeRemovalHandler;
 import com.SprintXXL.primitiverecipes.recipes.removal.RecipeRemovalRegistry;
 import com.SprintXXL.primitiverecipes.util.JavaRecipeFactory;
@@ -35,32 +31,11 @@ public class ForgeRecipes {
                 continue;
             }
 
-            IRecipe recipe = JavaRecipeFactory.create(definition);
-
-            if (recipe == null) {
-                continue;
-            }
-
-            event.getRegistry().register(recipe);
+            event.getRegistry().register(JavaRecipeFactory.create(definition));
         }
     }
 
     private static boolean isForgeRecipe(CraftingRecipe definition) {
-
-        RecipeData data = definition.getData();
-
-        if (data instanceof BasicRecipeData) {
-            return true;
-        }
-
-        if (data instanceof CustomRecipeData) {
-            return ((CustomRecipeData) data).getRuntime() == RecipeRuntime.FORGE;
-        }
-
-        if (data instanceof ExternalRecipeData) {
-            return ((ExternalRecipeData) data).getRuntime() == RecipeRuntime.FORGE;
-        }
-
-        return false;
+        return definition.getRuntime() == Runtime.FORGE;
     }
 }

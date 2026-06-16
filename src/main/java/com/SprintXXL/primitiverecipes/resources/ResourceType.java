@@ -6,5 +6,6 @@ public enum ResourceType {
     MATERIALS,
     ORES,
     TOOLS,
-    UTILITYTOOLS
+    UTILITYTOOLS,
+    TOOLWORKS
 }

@@ -1,10 +1,10 @@
 package com.SprintXXL.primitiverecipes.util;
 
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.data.mod.CustomRecipeData;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.definitions.CraftingRecipe;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.data.mod.BasicRecipeData;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.data.external.ExternalRecipeData;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.recipes.generic.BasicJavaRecipe;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.CustomRecipeData;
+import com.SprintXXL.primitiverecipes.recipes.crafting.CraftingRecipe;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.BasicRecipeData;
+import com.SprintXXL.primitiverecipes.recipes.crafting.data.ExternalRecipeData;
+import com.SprintXXL.primitiverecipes.recipes.crafting.recipes.generic.BasicJavaRecipe;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 
@@ -40,6 +40,6 @@ public final class JavaRecipeFactory {
             return recipe;
         }
 
-        return null;
+        throw new IllegalArgumentException("Unsupported recipe data: " + definition.getData().getClass().getName());
     }
 }

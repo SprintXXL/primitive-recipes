@@ -1,13 +1,13 @@
 package com.SprintXXL.primitiverecipes.util.deprecated;
 
 import com.SprintXXL.primitiverecipes.recipes.ingredients.IngredientType;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.definitions.ModCraftingRecipes;
+import com.SprintXXL.primitiverecipes.recipes.crafting.definitions.ModCraftingRecipes;
 import com.SprintXXL.primitiverecipes.recipes.ingredients.RecipeIngredient;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.data.shape.ShapedRecipe;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.definitions.CraftingRecipe;
+import com.SprintXXL.primitiverecipes.recipes.crafting.shape.ShapedRecipe;
+import com.SprintXXL.primitiverecipes.recipes.crafting.definitions.CraftingRecipe;
 import com.SprintXXL.primitiverecipes.recipes.registry.RecipeRegistry;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.data.shape.RecipeShape;
-import com.SprintXXL.primitiverecipes.recipes.types.crafting.data.shape.ShapelessRecipe;
+import com.SprintXXL.primitiverecipes.recipes.crafting.shape.RecipeShape;
+import com.SprintXXL.primitiverecipes.recipes.crafting.shape.ShapelessRecipe;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
