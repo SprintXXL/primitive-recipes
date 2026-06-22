@@ -1,6 +1,9 @@
 package com.SprintXXL.primitiverecipes.resources;
 
-import static com.SprintXXL.primitiverecipes.resources.ResourceRegistry.register;
+import com.SprintXXL.primitiverecipeapi.resources.ResourceType;
+import com.SprintXXL.primitiverecipeapi.resources.ResourceDefinition;
+
+import static com.SprintXXL.primitiverecipeapi.resources.ResourceRegistry.register;
 
 public final class ModResources {
 

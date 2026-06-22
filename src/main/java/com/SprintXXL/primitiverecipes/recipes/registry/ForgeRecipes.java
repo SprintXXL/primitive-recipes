@@ -1,7 +1,8 @@
 package com.SprintXXL.primitiverecipes.recipes.registry;
 
-import com.SprintXXL.primitiverecipes.recipes.shared.Runtime;
-import com.SprintXXL.primitiverecipes.recipes.crafting.CraftingRecipe;
+import com.SprintXXL.primitiverecipeapi.crafting.CraftingRecipe;
+import com.SprintXXL.primitiverecipeapi.crafting.CraftingRecipeRegistry;
+import com.SprintXXL.primitiverecipeapi.shared.RecipeRuntime;
 import com.SprintXXL.primitiverecipes.recipes.removal.RecipeRemovalHandler;
 import com.SprintXXL.primitiverecipes.recipes.removal.RecipeRemovalRegistry;
 import com.SprintXXL.primitiverecipes.util.JavaRecipeFactory;
@@ -25,7 +26,7 @@ public class ForgeRecipes {
             RecipeRemovalHandler.removeRecipe(event, id);
         }
 
-        for (CraftingRecipe definition : RecipeRegistry.getAllRecipes()) {
+        for (CraftingRecipe definition : CraftingRecipeRegistry.getAllRecipes()) {
 
             if (!isForgeRecipe(definition)) {
                 continue;
@@ -36,6 +37,6 @@ public class ForgeRecipes {
     }
 
     private static boolean isForgeRecipe(CraftingRecipe definition) {
-        return definition.getRuntime() == Runtime.FORGE;
+        return definition.getRuntime() == RecipeRuntime.FORGE;
     }
 }

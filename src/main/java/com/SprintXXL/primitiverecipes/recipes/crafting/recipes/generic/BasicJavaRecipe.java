@@ -1,14 +1,14 @@
 package com.SprintXXL.primitiverecipes.recipes.crafting.recipes.generic;
 
-import com.SprintXXL.primitiverecipes.recipes.ingredients.IngredientType;
-import com.SprintXXL.primitiverecipes.recipes.crafting.CraftingRecipe;
-import com.SprintXXL.primitiverecipes.recipes.ingredients.RemainingBehavior;
-import com.SprintXXL.primitiverecipes.recipes.crafting.data.BasicRecipeData;
-import com.SprintXXL.primitiverecipes.recipes.ingredients.RecipeIngredient;
-import com.SprintXXL.primitiverecipes.recipes.crafting.shape.RecipeShape;
-import com.SprintXXL.primitiverecipes.recipes.crafting.shape.ShapedRecipe;
-import com.SprintXXL.primitiverecipes.recipes.crafting.shape.ShapelessRecipe;
-import com.SprintXXL.primitiverecipes.resources.ResourceResolver;
+import com.SprintXXL.primitiverecipeapi.crafting.CraftingRecipe;
+import com.SprintXXL.primitiverecipeapi.crafting.data.BasicRecipeData;
+import com.SprintXXL.primitiverecipeapi.crafting.shape.CraftingRecipeShape;
+import com.SprintXXL.primitiverecipeapi.crafting.shape.ShapedRecipe;
+import com.SprintXXL.primitiverecipeapi.crafting.shape.ShapelessRecipe;
+import com.SprintXXL.primitiverecipeapi.ingredients.IngredientType;
+import com.SprintXXL.primitiverecipeapi.ingredients.RecipeIngredient;
+import com.SprintXXL.primitiverecipeapi.ingredients.RemainingBehavior;
+import com.SprintXXL.primitiverecipeapi.resources.ResourceResolver;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -40,7 +40,7 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
     @Override
     public boolean matches(InventoryCrafting inv, World worldIn) {
 
-        RecipeShape shape = data.getShape();
+        CraftingRecipeShape shape = data.getShape();
 
         if (shape instanceof ShapelessRecipe) {
             return matchesShapeless(inv, (ShapelessRecipe) shape);
@@ -58,7 +58,7 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
 
         NonNullList<ItemStack> remaining = NonNullList.withSize(inv.getSizeInventory(), ItemStack.EMPTY);
 
-        RecipeShape shape = data.getShape();
+        CraftingRecipeShape shape = data.getShape();
 
         if (shape instanceof ShapelessRecipe) {
             applyShapelessRemainingItems(inv, remaining, (ShapelessRecipe) shape);
@@ -287,7 +287,7 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
 
     private RecipeIngredient findMatchingIngredient(ItemStack stack) {
 
-        RecipeShape shape = data.getShape();
+        CraftingRecipeShape shape = data.getShape();
 
         if (!(shape instanceof ShapelessRecipe)) {
             return null;

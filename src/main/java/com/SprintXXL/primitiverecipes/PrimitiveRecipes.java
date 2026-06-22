@@ -1,7 +1,5 @@
 package com.SprintXXL.primitiverecipes;
 
-import com.SprintXXL.primitiverecipes.recipes.registry.RecipeRegistry;
-import com.SprintXXL.primitiverecipes.resources.ResourceRegistry;
 import com.SprintXXL.primitiverecipes.util.commands.DumpResources;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -10,8 +8,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import static com.SprintXXL.primitiverecipes.Reference.*;
+import static com.SprintXXL.primitiverecipes.recipes.crafting.definitions.CoreCraftingRecipes.initCoreCraftingRecipes;
+import static com.SprintXXL.primitiverecipes.recipes.crafting.definitions.ModCraftingRecipes.initModCraftingRecipes;
+import static com.SprintXXL.primitiverecipes.recipes.factory.ModFactoryRecipes.initModFactoryRecipes;
+import static com.SprintXXL.primitiverecipes.recipes.removal.RecipeRemovalRegistry.registerRecipeRemovals;
+import static com.SprintXXL.primitiverecipes.resources.ModResources.initModResources;
 
-@Mod(modid = MODID, name = NAME, version = VERSION)
+@Mod(modid = MODID, name = NAME, version = VERSION, dependencies = "required-after:primitiverecipeapi")
 public class PrimitiveRecipes {
 
     public static final Logger LOGGER = LogManager.getLogger(NAME);
@@ -27,7 +30,10 @@ public class PrimitiveRecipes {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
 
-        RecipeRegistry.init();
-        ResourceRegistry.init();
+        initModResources();
+        registerRecipeRemovals();
+        initCoreCraftingRecipes();
+        initModCraftingRecipes();
+        initModFactoryRecipes();
     }
 }

@@ -1,18 +1,18 @@
 package com.SprintXXL.primitiverecipes.recipes.crafting.definitions;
 
-import com.SprintXXL.primitiverecipes.recipes.shared.Category;
-import com.SprintXXL.primitiverecipes.recipes.shared.Owner;
-import com.SprintXXL.primitiverecipes.recipes.shared.Runtime;
-import com.SprintXXL.primitiverecipes.recipes.crafting.data.CustomRecipeData;
-import com.SprintXXL.primitiverecipes.recipes.crafting.CraftingRecipe;
-import com.SprintXXL.primitiverecipes.recipes.crafting.data.BasicRecipeData;
-import com.SprintXXL.primitiverecipes.recipes.crafting.shape.ShapedRecipe;
+import com.SprintXXL.primitiverecipeapi.crafting.CraftingRecipe;
+import com.SprintXXL.primitiverecipeapi.crafting.data.BasicRecipeData;
+import com.SprintXXL.primitiverecipeapi.crafting.data.CustomRecipeData;
+import com.SprintXXL.primitiverecipeapi.crafting.shape.ShapedRecipe;
+import com.SprintXXL.primitiverecipeapi.shared.Category;
+import com.SprintXXL.primitiverecipeapi.shared.Owner;
+import com.SprintXXL.primitiverecipeapi.shared.RecipeRuntime;
 import com.SprintXXL.primitiverecipes.recipes.crafting.recipes.custom.LogToPlanksRecipe;
 
 import java.util.Map;
 
-import static com.SprintXXL.primitiverecipes.recipes.registry.RecipeRegistry.register;
-import static com.SprintXXL.primitiverecipes.recipes.ingredients.RecipeIngredient.*;
+import static com.SprintXXL.primitiverecipeapi.crafting.CraftingRecipeRegistry.register;
+import static com.SprintXXL.primitiverecipeapi.ingredients.RecipeIngredient.*;
 import static com.SprintXXL.primitiverecipes.resources.ModResources.*;
 
 public final class CoreCraftingRecipes {
@@ -26,7 +26,7 @@ public final class CoreCraftingRecipes {
             new CraftingRecipe(
                     CoreCRIDs.ASSEMBLE_CRAFTING_TABLE,
                     Owner.CORE,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -47,7 +47,7 @@ public final class CoreCraftingRecipes {
             new CraftingRecipe(
                     CoreCRIDs.ASSEMBLE_CHEST,
                     Owner.CORE,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -70,7 +70,7 @@ public final class CoreCraftingRecipes {
             new CraftingRecipe(
                     CoreCRIDs.ASSEMBLE_FURNACE,
                     Owner.CORE,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -92,7 +92,7 @@ public final class CoreCraftingRecipes {
             new CraftingRecipe(
                     CoreCRIDs.ASSEMBLE_HOPPER,
                     Owner.CORE,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -114,7 +114,7 @@ public final class CoreCraftingRecipes {
             new CraftingRecipe(
                     CoreCRIDs.ASSEMBLE_BUCKET,
                     Owner.CORE,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -138,7 +138,7 @@ public final class CoreCraftingRecipes {
             new CraftingRecipe(
                     CoreCRIDs.CRAFT_FLINT,
                     Owner.CORE,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -158,7 +158,7 @@ public final class CoreCraftingRecipes {
             new CraftingRecipe(
                     CoreCRIDs.CRAFT_PLANKS,
                     Owner.CORE,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new CustomRecipeData(
                             LogToPlanksRecipe::new
@@ -168,7 +168,7 @@ public final class CoreCraftingRecipes {
             new CraftingRecipe(
                     CoreCRIDs.CRAFT_STICKS,
                     Owner.CORE,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new BasicRecipeData(
                             new ShapedRecipe(

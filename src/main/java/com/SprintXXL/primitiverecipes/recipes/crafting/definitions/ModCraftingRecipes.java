@@ -1,12 +1,12 @@
 package com.SprintXXL.primitiverecipes.recipes.crafting.definitions;
 
-import com.SprintXXL.primitiverecipes.recipes.crafting.data.BasicRecipeData;
-import com.SprintXXL.primitiverecipes.recipes.crafting.shape.ShapedRecipe;
-import com.SprintXXL.primitiverecipes.recipes.shared.Category;
-import com.SprintXXL.primitiverecipes.recipes.shared.Owner;
-import com.SprintXXL.primitiverecipes.recipes.shared.Runtime;
-import com.SprintXXL.primitiverecipes.recipes.crafting.CraftingRecipe;
-import com.SprintXXL.primitiverecipes.recipes.crafting.data.ExternalRecipeData;
+import com.SprintXXL.primitiverecipeapi.crafting.CraftingRecipe;
+import com.SprintXXL.primitiverecipeapi.crafting.data.BasicRecipeData;
+import com.SprintXXL.primitiverecipeapi.crafting.data.ExternalRecipeData;
+import com.SprintXXL.primitiverecipeapi.crafting.shape.ShapedRecipe;
+import com.SprintXXL.primitiverecipeapi.shared.Category;
+import com.SprintXXL.primitiverecipeapi.shared.Owner;
+import com.SprintXXL.primitiverecipeapi.shared.RecipeRuntime;
 import com.SprintXXL.primitivetoolworks.feature.tables.partbuilder.recipes.RecipePart;
 import com.SprintXXL.primitivetoolworks.feature.tables.stenciltable.containers.ContainerStencilTable;
 import com.SprintXXL.primitivetoolworks.feature.tools.recipes.RecipeModularTool;
@@ -17,10 +17,10 @@ import com.SprintXXL.primitiveutilitytools.tools.recipes.*;
 
 import java.util.Map;
 
-import static com.SprintXXL.primitiverecipes.recipes.ingredients.RecipeIngredient.*;
-import static com.SprintXXL.primitiverecipes.recipes.ingredients.RemainingBehavior.DAMAGE;
-import static com.SprintXXL.primitiverecipes.recipes.registry.RecipeRegistry.register;
+import static com.SprintXXL.primitiverecipeapi.crafting.CraftingRecipeRegistry.register;
+import static com.SprintXXL.primitiverecipeapi.ingredients.RemainingBehavior.DAMAGE;
 import static com.SprintXXL.primitiverecipes.resources.ModResources.*;
+import static com.SprintXXL.primitiverecipeapi.ingredients.RecipeIngredient.*;
 
 public final class ModCraftingRecipes {
 
@@ -43,7 +43,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_CROWBAR,
                     Owner.UTILITYTOOLS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipeCrowbar.class,
@@ -54,7 +54,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_FILE,
                     Owner.UTILITYTOOLS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipeFile.class,
@@ -65,7 +65,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_HAMMER,
                     Owner.UTILITYTOOLS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipeHammer.class,
@@ -76,7 +76,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_KNIFE,
                     Owner.UTILITYTOOLS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipeKnife.class,
@@ -87,7 +87,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_MORTAR,
                     Owner.UTILITYTOOLS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipeMortar.class,
@@ -98,7 +98,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_SAW,
                     Owner.UTILITYTOOLS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipeSaw.class,
@@ -109,7 +109,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_SCREWDRIVER,
                     Owner.UTILITYTOOLS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipeScrewdriver.class,
@@ -120,7 +120,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_WRENCH,
                     Owner.UTILITYTOOLS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipeWrench.class,
@@ -137,7 +137,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_MODULAR_TOOL,
                     Owner.TOOLWORKS,
-                    Runtime.CUSTOM,
+                    RecipeRuntime.CUSTOM,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipeModularTool.class
@@ -147,7 +147,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_MODULAR_PART,
                     Owner.TOOLWORKS,
-                    Runtime.CUSTOM,
+                    RecipeRuntime.CUSTOM,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipePart.class
@@ -157,7 +157,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_BLANK_PATTERN,
                     Owner.TOOLWORKS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -177,7 +177,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_TOOL_STATION,
                     Owner.TOOLWORKS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -200,7 +200,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_PART_BUILDER,
                     Owner.TOOLWORKS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -223,7 +223,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_STENCIL_TABLE,
                     Owner.TOOLWORKS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -248,7 +248,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.CARVE_PATTERN,
                     Owner.TOOLWORKS,
-                    Runtime.CUSTOM,
+                    RecipeRuntime.CUSTOM,
                     Category.PROCESSING,
                     new ExternalRecipeData(
                             ContainerStencilTable.class
@@ -260,7 +260,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.REPAIR_MODULAR_TOOL,
                     Owner.TOOLWORKS,
-                    Runtime.CUSTOM,
+                    RecipeRuntime.CUSTOM,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipeToolRepair.class
@@ -270,7 +270,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.APPLY_MODULAR_TOOL_MODIFIER,
                     Owner.TOOLWORKS,
-                    Runtime.CUSTOM,
+                    RecipeRuntime.CUSTOM,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipeToolModifier.class
@@ -280,7 +280,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.REPLACE_MODULAR_TOOL_PART,
                     Owner.TOOLWORKS,
-                    Runtime.CUSTOM,
+                    RecipeRuntime.CUSTOM,
                     Category.ASSEMBLY,
                     new ExternalRecipeData(
                             RecipePartReplacement.class
@@ -296,7 +296,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_IRON_GEAR,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -318,7 +318,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.ASSEMBLE_BRONZE_GEAR,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.ASSEMBLY,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -342,7 +342,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.HAMMER_IRON_PLATE,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -364,7 +364,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.HAMMER_BRONZE_PLATE,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -386,7 +386,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.FILE_IRON_ROD,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -408,7 +408,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.FILE_BRONZE_ROD,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -430,7 +430,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.SAW_IRON_BOLT,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -451,7 +451,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.SAW_BRONZE_BOLT,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -472,7 +472,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.FILE_IRON_SCREW,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -493,7 +493,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.FILE_BRONZE_SCREW,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -514,7 +514,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.MORTAR_IRON_DUST,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -535,7 +535,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.MORTAR_BRONZE_DUST,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.PROCESSING,
                     new BasicRecipeData(
                             new ShapedRecipe(
@@ -558,7 +558,7 @@ public final class ModCraftingRecipes {
             new CraftingRecipe(
                     ModCRIDs.MIX_BRONZE_DUST,
                     Owner.MATERIALS,
-                    Runtime.FORGE,
+                    RecipeRuntime.FORGE,
                     Category.MIXING,
                     new BasicRecipeData(
                             new ShapedRecipe(

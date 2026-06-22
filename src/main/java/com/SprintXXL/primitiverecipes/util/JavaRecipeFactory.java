@@ -1,9 +1,9 @@
 package com.SprintXXL.primitiverecipes.util;
 
-import com.SprintXXL.primitiverecipes.recipes.crafting.data.CustomRecipeData;
-import com.SprintXXL.primitiverecipes.recipes.crafting.CraftingRecipe;
-import com.SprintXXL.primitiverecipes.recipes.crafting.data.BasicRecipeData;
-import com.SprintXXL.primitiverecipes.recipes.crafting.data.ExternalRecipeData;
+import com.SprintXXL.primitiverecipeapi.crafting.CraftingRecipe;
+import com.SprintXXL.primitiverecipeapi.crafting.data.BasicRecipeData;
+import com.SprintXXL.primitiverecipeapi.crafting.data.CustomRecipeData;
+import com.SprintXXL.primitiverecipeapi.crafting.data.ExternalRecipeData;
 import com.SprintXXL.primitiverecipes.recipes.crafting.recipes.generic.BasicJavaRecipe;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;

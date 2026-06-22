@@ -75,7 +75,9 @@ public class ResourceGenerator {
 
     private static String buildModResourcesFile(String definitions, String registers) {
         return "package com.SprintXXL.primitiverecipes.resources;\n\n" +
-                "import static com.SprintXXL.primitiverecipes.resources.ResourceRegistry.register;\n\n" +
+                "import com.SprintXXL.primitiverecipeapi.resources.ResourceType;\n" +
+                "import com.SprintXXL.primitiverecipeapi.resources.ResourceDefinition;\n\n" +
+                "import static com.SprintXXL.primitiverecipeapi.resources.ResourceRegistry.register;\n\n" +
                 "public final class ModResources {\n\n" +
                 "    private ModResources() {}\n\n" +
                 definitions +
