@@ -23,9 +23,9 @@ public final class ModFactoryRecipes {
                     FactoryRecipeIDs.LOG_TO_CHARCOAL,
                     FactoryIDs.COKE_OVEN,
                     new BasicFactoryData(
-                            300,
+                            10,
                             tag("logWood"),
-                            of(COAL, 1)
+                            of(VANILLA_COAL, 1)
                     )
             );
 }

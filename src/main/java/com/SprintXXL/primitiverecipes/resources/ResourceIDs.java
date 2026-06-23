@@ -4,6 +4,8 @@ public final class ResourceIDs {
 
     private ResourceIDs() {}
 
+    public static final String VANILLA_COAL = "minecraft:coal";
+
     public static final String DRAGON_BREATH = "minecraft:dragon_breath";
     public static final String EGG = "minecraft:egg";
     public static final String BIRCH_STAIRS = "minecraft:birch_stairs";

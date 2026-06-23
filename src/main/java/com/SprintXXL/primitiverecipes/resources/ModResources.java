@@ -9,6 +9,12 @@ public final class ModResources {
 
     private ModResources() {}
 
+    public static final ResourceDefinition VANILLA_COAL =
+            new ResourceDefinition(
+                    ResourceIDs.VANILLA_COAL,
+                    ResourceType.VANILLA
+            );
+
     public static final ResourceDefinition DRAGON_BREATH =
             new ResourceDefinition(
                     ResourceIDs.DRAGON_BREATH,
@@ -2686,6 +2692,8 @@ public final class ModResources {
             );
 
     public static void initModResources() {
+
+        register(VANILLA_COAL);
 
         register(DRAGON_BREATH);
         register(EGG);
