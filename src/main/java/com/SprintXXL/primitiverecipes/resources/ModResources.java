@@ -1,9 +1,9 @@
 package com.SprintXXL.primitiverecipes.resources;
 
-import com.SprintXXL.primitiverecipeapi.resources.ResourceType;
-import com.SprintXXL.primitiverecipeapi.resources.ResourceDefinition;
+import com.SprintXXL.primitiverecipeapi.resources.definition.ResourceType;
+import com.SprintXXL.primitiverecipeapi.resources.definition.ResourceDefinition;
 
-import static com.SprintXXL.primitiverecipeapi.resources.ResourceRegistry.register;
+import static com.SprintXXL.primitiverecipeapi.resources.definition.ResourceRegistry.register;
 
 public final class ModResources {
 
@@ -2692,8 +2692,6 @@ public final class ModResources {
             );
 
     public static void initModResources() {
-
-        register(VANILLA_COAL);
 
         register(DRAGON_BREATH);
         register(EGG);

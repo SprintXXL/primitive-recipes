@@ -18,9 +18,9 @@ import com.SprintXXL.primitiveutilitytools.tools.recipes.*;
 import java.util.Map;
 
 import static com.SprintXXL.primitiverecipeapi.crafting.CraftingRecipeRegistry.register;
-import static com.SprintXXL.primitiverecipeapi.ingredients.RemainingBehavior.DAMAGE;
+import static com.SprintXXL.primitiverecipeapi.resources.recipe.RecipeResource.*;
+import static com.SprintXXL.primitiverecipeapi.resources.recipe.RemainingBehavior.DAMAGE;
 import static com.SprintXXL.primitiverecipes.resources.ModResources.*;
-import static com.SprintXXL.primitiverecipeapi.ingredients.RecipeIngredient.*;
 
 public final class ModCraftingRecipes {
 
@@ -166,11 +166,10 @@ public final class ModCraftingRecipes {
                                             "PP"
                                     ),
                                     Map.of(
-                                            'P', of(PAPER)
+                                            'P', item(PAPER)
                                     )
                             ),
-                            BLANK_PATTERN,
-                            1
+                            item(BLANK_PATTERN)
                     )
             );
     public static final CraftingRecipe ASSEMBLE_TOOL_STATION =
@@ -187,13 +186,12 @@ public final class ModCraftingRecipes {
                                             "PPP"
                                     ),
                                     Map.of(
-                                            'P', of(PLANKS, 0),
-                                            'B', of(BLANK_PATTERN),
-                                            'C', of(CRAFTING_TABLE)
+                                            'P', itemMeta(PLANKS, 0),
+                                            'B', item(BLANK_PATTERN),
+                                            'C', item(CRAFTING_TABLE)
                                     )
                             ),
-                            TOOL_STATION,
-                            1
+                            item(TOOL_STATION)
                     )
             );
     public static final CraftingRecipe ASSEMBLE_PART_BUILDER =
@@ -210,13 +208,12 @@ public final class ModCraftingRecipes {
                                             "LLL"
                                     ),
                                     Map.of(
-                                            'L', of(LOG, 0),
-                                            'B', of(BLANK_PATTERN),
-                                            'C', of(CRAFTING_TABLE)
+                                            'L', itemMeta(LOG, 0),
+                                            'B', item(BLANK_PATTERN),
+                                            'C', item(CRAFTING_TABLE)
                                     )
                             ),
-                            PART_BUILDER,
-                            1
+                            item(PART_BUILDER)
                     )
             );
     public static final CraftingRecipe ASSEMBLE_STENCIL_TABLE =
@@ -233,13 +230,12 @@ public final class ModCraftingRecipes {
                                             "LLL"
                                     ),
                                     Map.of(
-                                            'L', of(LOG, 2),
-                                            'B', of(BLANK_PATTERN),
-                                            'C', of(CRAFTING_TABLE)
+                                            'L', itemMeta(LOG, 2),
+                                            'B', item(BLANK_PATTERN),
+                                            'C', item(CRAFTING_TABLE)
                                     )
                             ),
-                            STENCIL_TABLE,
-                            1
+                            item(STENCIL_TABLE)
                     )
             );
 
@@ -306,12 +302,11 @@ public final class ModCraftingRecipes {
                                             "PRP"
                                     ),
                                     Map.of(
-                                            'P', of(IRON_PLATE),
-                                            'R', of(IRON_ROD)
+                                            'P', item(IRON_PLATE),
+                                            'R', item(IRON_ROD)
                                     )
                             ),
-                            IRON_GEAR,
-                            1
+                            item(IRON_GEAR)
                     )
             );
     public static final CraftingRecipe ASSEMBLE_BRONZE_GEAR =
@@ -328,12 +323,11 @@ public final class ModCraftingRecipes {
                                             "PRP"
                                     ),
                                     Map.of(
-                                            'P', of(BRONZE_PLATE),
-                                            'R', of(BRONZE_ROD)
+                                            'P', item(BRONZE_PLATE),
+                                            'R', item(BRONZE_ROD)
                                     )
                             ),
-                            BRONZE_GEAR,
-                            1
+                            item(BRONZE_GEAR)
                     )
             );
 
@@ -352,12 +346,11 @@ public final class ModCraftingRecipes {
                                             "III"
                                     ),
                                     Map.of(
-                                            'H', withBehavior(HAMMER, DAMAGE),
-                                            'I', of(IRON_INGOT)
+                                            'H', item(HAMMER).withBehavior(DAMAGE),
+                                            'I', item(IRON_INGOT)
                                     )
                             ),
-                            IRON_PLATE,
-                            1
+                            item(IRON_PLATE)
                     )
             );
     public static final CraftingRecipe HAMMER_BRONZE_PLATE =
@@ -374,12 +367,11 @@ public final class ModCraftingRecipes {
                                             "III"
                                     ),
                                     Map.of(
-                                            'H', withBehavior(HAMMER, DAMAGE),
-                                            'I', of(BRONZE_INGOT)
+                                            'H', item(HAMMER).withBehavior(DAMAGE),
+                                            'I', item(BRONZE_INGOT)
                                     )
                             ),
-                            BRONZE_PLATE,
-                            1
+                            item(BRONZE_PLATE)
                     )
             );
     public static final CraftingRecipe FILE_IRON_ROD =
@@ -396,12 +388,11 @@ public final class ModCraftingRecipes {
                                             "  I"
                                     ),
                                     Map.of(
-                                            'F', withBehavior(FILE, DAMAGE),
-                                            'I', of(IRON_INGOT)
+                                            'F', item(FILE).withBehavior(DAMAGE),
+                                            'I', item(IRON_INGOT)
                                     )
                             ),
-                            IRON_ROD,
-                            1
+                            item(IRON_ROD)
                     )
             );
     public static final CraftingRecipe FILE_BRONZE_ROD =
@@ -418,12 +409,11 @@ public final class ModCraftingRecipes {
                                             "  I"
                                     ),
                                     Map.of(
-                                            'F', withBehavior(FILE, DAMAGE),
-                                            'I', of(BRONZE_INGOT)
+                                            'F', item(FILE).withBehavior(DAMAGE),
+                                            'I', item(BRONZE_INGOT)
                                     )
                             ),
-                            BRONZE_ROD,
-                            1
+                            item(BRONZE_ROD)
                     )
             );
     public static final CraftingRecipe SAW_IRON_BOLT =
@@ -439,12 +429,11 @@ public final class ModCraftingRecipes {
                                             " R"
                                     ),
                                     Map.of(
-                                            'S', withBehavior(SAW, DAMAGE),
-                                            'R', of(IRON_ROD)
+                                            'S', item(SAW).withBehavior(DAMAGE),
+                                            'R', item(IRON_ROD)
                                     )
                             ),
-                            IRON_BOLT,
-                            2
+                            itemCount(IRON_BOLT, 2)
                     )
             );
     public static final CraftingRecipe SAW_BRONZE_BOLT =
@@ -460,12 +449,11 @@ public final class ModCraftingRecipes {
                                             " R"
                                     ),
                                     Map.of(
-                                            'S', withBehavior(SAW, DAMAGE),
-                                            'R', of(BRONZE_ROD)
+                                            'S', item(SAW).withBehavior(DAMAGE),
+                                            'R', item(BRONZE_ROD)
                                     )
                             ),
-                            BRONZE_BOLT,
-                            2
+                            itemCount(BRONZE_BOLT, 2)
                     )
             );
     public static final CraftingRecipe FILE_IRON_SCREW =
@@ -481,12 +469,11 @@ public final class ModCraftingRecipes {
                                             "B "
                                     ),
                                     Map.of(
-                                            'F', withBehavior(FILE, DAMAGE),
-                                            'B', of(IRON_BOLT)
+                                            'F', item(FILE).withBehavior(DAMAGE),
+                                            'B', item(IRON_BOLT)
                                     )
                             ),
-                            IRON_SCREW,
-                            1
+                            item(IRON_SCREW)
                     )
             );
     public static final CraftingRecipe FILE_BRONZE_SCREW =
@@ -502,12 +489,11 @@ public final class ModCraftingRecipes {
                                             "B "
                                     ),
                                     Map.of(
-                                            'F', withBehavior(FILE, DAMAGE),
-                                            'B', of(BRONZE_BOLT)
+                                            'F', item(FILE).withBehavior(DAMAGE),
+                                            'B', item(BRONZE_BOLT)
                                     )
                             ),
-                            BRONZE_SCREW,
-                            1
+                            item(BRONZE_SCREW)
                     )
             );
     public static final CraftingRecipe MORTAR_IRON_DUST =
@@ -523,12 +509,11 @@ public final class ModCraftingRecipes {
                                             "I"
                                     ),
                                     Map.of(
-                                            'M', withBehavior(MORTAR, DAMAGE),
-                                            'I', of(IRON_INGOT)
+                                            'M', item(MORTAR).withBehavior(DAMAGE),
+                                            'I', item(IRON_INGOT)
                                     )
                             ),
-                            IRON_DUST,
-                            1
+                            item(IRON_DUST)
                     )
             );
     public static final CraftingRecipe MORTAR_BRONZE_DUST =
@@ -544,12 +529,11 @@ public final class ModCraftingRecipes {
                                             "I"
                                     ),
                                     Map.of(
-                                            'M', withBehavior(MORTAR, DAMAGE),
-                                            'I', of(BRONZE_INGOT)
+                                            'M', item(MORTAR).withBehavior(DAMAGE),
+                                            'I', item(BRONZE_INGOT)
                                     )
                             ),
-                            BRONZE_DUST,
-                            1
+                            item(BRONZE_DUST)
                     )
             );
 
@@ -567,12 +551,11 @@ public final class ModCraftingRecipes {
                                             "CC"
                                     ),
                                     Map.of(
-                                            'C', of(COPPER_DUST),
-                                            'T', of(TIN_DUST)
+                                            'C', item(COPPER_DUST),
+                                            'T', item(TIN_DUST)
                                     )
                             ),
-                            BRONZE_DUST,
-                            1
+                            item(BRONZE_DUST)
                     )
             );
 

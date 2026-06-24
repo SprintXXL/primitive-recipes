@@ -67,6 +67,7 @@ public class ResourceGenerator {
 
     private static String buildResourceIDsFile(String body) {
         return "package com.SprintXXL.primitiverecipes.resources;\n\n" +
+                "import net.minecraft.util.ResourceLocation;\n\n" +
                 "public final class ResourceIDs {\n\n" +
                 "    private ResourceIDs() {}\n\n" +
                 body +
@@ -75,9 +76,9 @@ public class ResourceGenerator {
 
     private static String buildModResourcesFile(String definitions, String registers) {
         return "package com.SprintXXL.primitiverecipes.resources;\n\n" +
-                "import com.SprintXXL.primitiverecipeapi.resources.ResourceType;\n" +
-                "import com.SprintXXL.primitiverecipeapi.resources.ResourceDefinition;\n\n" +
-                "import static com.SprintXXL.primitiverecipeapi.resources.ResourceRegistry.register;\n\n" +
+                "import com.SprintXXL.primitiverecipeapi.resources.definition.ResourceType;\n" +
+                "import com.SprintXXL.primitiverecipeapi.resources.definition.ResourceDefinition;\n\n" +
+                "import static com.SprintXXL.primitiverecipeapi.resources.definition.ResourceRegistry.register;\n\n" +
                 "public final class ModResources {\n\n" +
                 "    private ModResources() {}\n\n" +
                 definitions +
@@ -90,9 +91,11 @@ public class ResourceGenerator {
 
     private static String buildIDLine(String registryName) {
 
-        String line = "    public static final String " + getConstantName(registryName) + " = \"" + registryName + "\"" + ";";
+        String modid = getModid(registryName);
+        String path = getPath(registryName);
 
-        return line;
+        return "    public static final ResourceLocation " + getConstantName(registryName) + " = " +
+                "new ResourceLocation(\"" + modid + "\", \"" + path + "\");";
     }
 
     private static String buildDefinitionLine(String registryName, String modid) {

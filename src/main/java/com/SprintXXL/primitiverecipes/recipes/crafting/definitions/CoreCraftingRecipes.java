@@ -12,7 +12,8 @@ import com.SprintXXL.primitiverecipes.recipes.crafting.recipes.custom.LogToPlank
 import java.util.Map;
 
 import static com.SprintXXL.primitiverecipeapi.crafting.CraftingRecipeRegistry.register;
-import static com.SprintXXL.primitiverecipeapi.ingredients.RecipeIngredient.*;
+import static com.SprintXXL.primitiverecipeapi.resources.recipe.RecipeResource.item;
+import static com.SprintXXL.primitiverecipeapi.resources.recipe.RecipeResource.tag;
 import static com.SprintXXL.primitiverecipes.resources.ModResources.*;
 
 public final class CoreCraftingRecipes {
@@ -35,12 +36,11 @@ public final class CoreCraftingRecipes {
                                             "LL"
                                     ),
                                     Map.of(
-                                            'F', of(FLINT),
+                                            'F', item(FLINT),
                                             'L', tag("logWood")
                                     )
                             ),
-                            CRAFTING_TABLE,
-                            1
+                            item(CRAFTING_TABLE)
                     )
             );
     public static final CraftingRecipe ASSEMBLE_CHEST =
@@ -59,11 +59,10 @@ public final class CoreCraftingRecipes {
                                     Map.of(
                                             'L', tag("logWood"),
                                             'P', tag("plankWood"),
-                                            'F', of(FLINT)
+                                            'F', item(FLINT)
                                     )
                             ),
-                            CHEST,
-                            1
+                            item(CHEST)
                     )
             );
     public static final CraftingRecipe ASSEMBLE_FURNACE =
@@ -80,12 +79,11 @@ public final class CoreCraftingRecipes {
                                             "CFC"
                                     ),
                                     Map.of(
-                                            'C', of(COBBLESTONE),
-                                            'F', of(FLINT)
+                                            'C', item(COBBLESTONE),
+                                            'F', item(FLINT)
                                     )
                             ),
-                            FURNACE,
-                            1
+                            item(FURNACE)
                     )
             );
     public static final CraftingRecipe ASSEMBLE_HOPPER =
@@ -102,12 +100,11 @@ public final class CoreCraftingRecipes {
                                             " P "
                                     ),
                                     Map.of(
-                                            'P', of(IRON_PLATE),
-                                            'C', of(CHEST)
+                                            'P', item(IRON_PLATE),
+                                            'C', item(CHEST)
                                     )
                             ),
-                            HOPPER,
-                            1
+                            item(HOPPER)
                     )
             );
     public static final CraftingRecipe ASSEMBLE_BUCKET =
@@ -123,11 +120,10 @@ public final class CoreCraftingRecipes {
                                             " P "
                                     ),
                                     Map.of(
-                                            'P', of(IRON_PLATE)
+                                            'P', item(IRON_PLATE)
                                     )
                             ),
-                            BUCKET,
-                            1
+                            item(BUCKET)
                     )
             );
 
@@ -147,11 +143,10 @@ public final class CoreCraftingRecipes {
                                             "GG"
                                     ),
                                     Map.of(
-                                            'G', of(GRAVEL)
+                                            'G', item(GRAVEL)
                                     )
                             ),
-                            FLINT,
-                            1
+                            item(FLINT)
                     )
             );
     public static final CraftingRecipe CRAFT_PLANKS =
@@ -180,8 +175,7 @@ public final class CoreCraftingRecipes {
                                             'P', tag("plankWood")
                                     )
                             ),
-                            STICK,
-                            1
+                            item(STICK)
                     )
             );
 

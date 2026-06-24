@@ -1,22 +1,20 @@
 package com.SprintXXL.primitiverecipes.recipes.crafting.recipes.generic;
 
+import com.SprintXXL.primitiverecipeapi.api.RecipeResourceMatcher;
+import com.SprintXXL.primitiverecipeapi.api.RecipeResourceResolver;
 import com.SprintXXL.primitiverecipeapi.crafting.CraftingRecipe;
 import com.SprintXXL.primitiverecipeapi.crafting.data.BasicRecipeData;
 import com.SprintXXL.primitiverecipeapi.crafting.shape.CraftingRecipeShape;
 import com.SprintXXL.primitiverecipeapi.crafting.shape.ShapedRecipe;
 import com.SprintXXL.primitiverecipeapi.crafting.shape.ShapelessRecipe;
-import com.SprintXXL.primitiverecipeapi.ingredients.IngredientType;
-import com.SprintXXL.primitiverecipeapi.ingredients.RecipeIngredient;
-import com.SprintXXL.primitiverecipeapi.ingredients.RemainingBehavior;
-import com.SprintXXL.primitiverecipeapi.resources.ResourceResolver;
+import com.SprintXXL.primitiverecipeapi.resources.recipe.RecipeResource;
+import com.SprintXXL.primitiverecipeapi.resources.recipe.RemainingBehavior;
 import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import java.util.ArrayList;
@@ -61,7 +59,7 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
         CraftingRecipeShape shape = data.getShape();
 
         if (shape instanceof ShapelessRecipe) {
-            applyShapelessRemainingItems(inv, remaining, (ShapelessRecipe) shape);
+            applyShapelessRemainingItems(inv, remaining);
         }
 
         if (shape instanceof ShapedRecipe) {
@@ -73,7 +71,7 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
 
     @Override
     public ItemStack getCraftingResult(InventoryCrafting inv) {
-        return ResourceResolver.createStack(data.getOutput(), data.getCount());
+        return RecipeResourceResolver.createStack(data.getOutput());
     }
 
     @Override
@@ -83,10 +81,10 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
 
     @Override
     public ItemStack getRecipeOutput() {
-        return ResourceResolver.createStack(data.getOutput(), data.getCount());
+        return RecipeResourceResolver.createStack(data.getOutput());
     }
 
-    private void applyShapelessRemainingItems(InventoryCrafting inv, NonNullList<ItemStack> remaining, ShapelessRecipe shape) {
+    private void applyShapelessRemainingItems(InventoryCrafting inv, NonNullList<ItemStack> remaining) {
 
         for (int i = 0; i < inv.getSizeInventory(); i++) {
 
@@ -96,13 +94,13 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
                 continue;
             }
 
-            RecipeIngredient ingredient = findMatchingIngredient(stack);
+            RecipeResource recipeResource = findMatchingRecipeResource(stack);
 
             applyRemainingBehavior(
                     remaining,
                     i,
                     stack,
-                    ingredient
+                    recipeResource
             );
         }
     }
@@ -130,7 +128,7 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
                 int patternX = x - offsetX;
                 int patternY = y - offsetY;
 
-                RecipeIngredient ingredient = getExpectedIngredientAt(shape, patternX, patternY);
+                RecipeResource recipeResource = getExpectedRecipeResourceAt(shape, patternX, patternY);
 
                 int slot = x + y * 3;
 
@@ -138,19 +136,19 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
                         remaining,
                         slot,
                         stack,
-                        ingredient
+                        recipeResource
                 );
             }
         }
     }
 
-    private void applyRemainingBehavior(NonNullList<ItemStack> remaining, int slot, ItemStack stack, RecipeIngredient ingredient) {
+    private void applyRemainingBehavior(NonNullList<ItemStack> remaining, int slot, ItemStack stack, RecipeResource recipeResource) {
 
-        if (ingredient == null) {
+        if (recipeResource == null) {
             return;
         }
 
-        if (ingredient.getRemainingBehavior() == RemainingBehavior.DAMAGE) {
+        if (recipeResource.getRemainingBehavior() == RemainingBehavior.DAMAGE) {
 
             ItemStack damaged = stack.copy();
             damaged.setCount(1);
@@ -164,7 +162,7 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
 
     private boolean matchesShapeless(InventoryCrafting inv, ShapelessRecipe shape) {
 
-        List<RecipeIngredient> remainingIngredients = new ArrayList<>(shape.getIngredients());
+        List<RecipeResource> remainingRecipeResources = new ArrayList<>(shape.getIngredients());
 
         for (int i = 0; i < inv.getSizeInventory(); i++) {
 
@@ -176,12 +174,12 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
 
             boolean foundMatch = false;
 
-            for (int j = 0; j < remainingIngredients.size(); j++) {
+            for (int j = 0; j < remainingRecipeResources.size(); j++) {
 
-                RecipeIngredient expected = remainingIngredients.get(j);
+                RecipeResource expected = remainingRecipeResources.get(j);
 
-                if (matchesIngredient(stack, expected)) {
-                    remainingIngredients.remove(j);
+                if (RecipeResourceMatcher.matches(expected, stack)) {
+                    remainingRecipeResources.remove(j);
                     foundMatch = true;
                     break;
                 }
@@ -192,7 +190,7 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
             }
         }
 
-        return remainingIngredients.isEmpty();
+        return remainingRecipeResources.isEmpty();
     }
 
     private boolean matchesShaped(InventoryCrafting inv, ShapedRecipe shape) {
@@ -219,9 +217,9 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
                 int patternX = x - offsetX;
                 int patternY = y - offsetY;
 
-                RecipeIngredient expected = getExpectedIngredientAt(shape, patternX, patternY);
+                RecipeResource expected = getExpectedRecipeResourceAt(shape, patternX, patternY);
 
-                if (!matchesIngredient(stack, expected)) {
+                if (!RecipeResourceMatcher.matches(expected, stack)) {
                     return false;
                 }
             }
@@ -248,44 +246,7 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
         return width;
     }
 
-    private boolean matchesIngredient(ItemStack stack, RecipeIngredient expected) {
-
-        if (expected == null) {
-            return stack.isEmpty();
-        }
-
-        if (stack.isEmpty()) {
-            return false;
-        }
-
-        if (expected.getType() == IngredientType.RESOURCE) {
-            Item expectedItem = ResourceResolver.getItem(expected.getResource());
-
-            if (stack.getItem() != expectedItem) {
-                return false;
-            }
-
-            if (expected.shouldMatchMeta() && stack.getMetadata() != expected.getMeta()) {
-                return false;
-            }
-
-            return true;
-        }
-
-        if (expected.getType() == IngredientType.TAG) {
-            int[] ids = OreDictionary.getOreIDs(stack);
-
-            for (int id : ids) {
-                if (OreDictionary.getOreName(id).equals(expected.getTag())) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    private RecipeIngredient findMatchingIngredient(ItemStack stack) {
+    private RecipeResource findMatchingRecipeResource(ItemStack stack) {
 
         CraftingRecipeShape shape = data.getShape();
 
@@ -295,17 +256,17 @@ public class BasicJavaRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
 
         ShapelessRecipe shapelessRecipe = (ShapelessRecipe) shape;
 
-        for (RecipeIngredient ingredient : shapelessRecipe.getIngredients()) {
+        for (RecipeResource recipeResource : shapelessRecipe.getIngredients()) {
 
-            if (matchesIngredient(stack, ingredient)) {
-                return ingredient;
+            if (RecipeResourceMatcher.matches(recipeResource, stack)) {
+                return recipeResource;
             }
         }
 
         return null;
     }
 
-    private RecipeIngredient getExpectedIngredientAt(ShapedRecipe shape, int x, int y) {
+    private RecipeResource getExpectedRecipeResourceAt(ShapedRecipe shape, int x, int y) {
 
         String[] pattern = shape.getPattern();
 
