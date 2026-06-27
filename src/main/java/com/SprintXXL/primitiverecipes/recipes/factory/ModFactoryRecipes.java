@@ -5,11 +5,10 @@ import com.SprintXXL.primitiverecipeapi.factory.FactoryRecipe;
 import com.SprintXXL.primitiverecipeapi.factory.MatchingMode;
 import com.SprintXXL.primitiverecipeapi.factory.data.BasicFactoryData;
 
-import java.util.List;
-
 import static com.SprintXXL.primitiverecipeapi.factory.FactoryRecipeRegistry.register;
-import static com.SprintXXL.primitiverecipeapi.resources.recipe.RecipeResource.itemMeta;
-import static com.SprintXXL.primitiverecipeapi.resources.recipe.RecipeResource.tag;
+import static com.SprintXXL.primitiverecipeapi.factory.data.BasicFactoryData.inputs;
+import static com.SprintXXL.primitiverecipeapi.factory.data.BasicFactoryData.outputs;
+import static com.SprintXXL.primitiverecipeapi.resources.recipe.RecipeResource.*;
 import static com.SprintXXL.primitiverecipes.resources.ModResources.*;
 
 public final class ModFactoryRecipes {
@@ -18,9 +17,34 @@ public final class ModFactoryRecipes {
 
     public static void initModFactoryRecipes() {
 
+        // TEST \\
+        register(TEST_RECIPE);
+
+        // FACTORY RECIPES \\
         register(LOG_TO_CHARCOAL);
     }
 
+    // TEST \\
+    public static final FactoryRecipe TEST_RECIPE =
+            new FactoryRecipe(
+                    FactoryRecipeIDs.TEST_RECIPE,
+                    FactoryIDs.TEST_FACTORY,
+                    MatchingMode.POOLED,
+                    new BasicFactoryData(
+                            5,
+                            inputs(
+                                    item(COBBLESTONE).count(2),
+                                    item(DIRT).count(3),
+                                    item(VANILLA_COAL).count(2).overrideInputSlot(4)
+                            ),
+                            outputs(
+                                    item(STONE).count(4).overrideOutputSlot(3),
+                                    item(PLANKS).count(4).meta(2)
+                            )
+                    )
+            );
+
+    // FACTORY RECIPES \\
     public static final FactoryRecipe LOG_TO_CHARCOAL =
             new FactoryRecipe(
                     FactoryRecipeIDs.LOG_TO_CHARCOAL,
@@ -28,11 +52,11 @@ public final class ModFactoryRecipes {
                     MatchingMode.POSITIONAL,
                     new BasicFactoryData(
                             10,
-                            List.of(
+                            inputs(
                                     tag("logWood")
                             ),
-                            List.of(
-                                    itemMeta(VANILLA_COAL, 1)
+                            outputs(
+                                    item(VANILLA_COAL).meta(1)
                             )
                     )
             );

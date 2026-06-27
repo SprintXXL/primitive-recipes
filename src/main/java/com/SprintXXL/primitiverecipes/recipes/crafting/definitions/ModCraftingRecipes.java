@@ -186,7 +186,7 @@ public final class ModCraftingRecipes {
                                             "PPP"
                                     ),
                                     Map.of(
-                                            'P', itemMeta(PLANKS, 0),
+                                            'P', item(PLANKS).meta(0),
                                             'B', item(BLANK_PATTERN),
                                             'C', item(CRAFTING_TABLE)
                                     )
@@ -208,7 +208,7 @@ public final class ModCraftingRecipes {
                                             "LLL"
                                     ),
                                     Map.of(
-                                            'L', itemMeta(LOG, 0),
+                                            'L', item(LOG).meta(0),
                                             'B', item(BLANK_PATTERN),
                                             'C', item(CRAFTING_TABLE)
                                     )
@@ -230,7 +230,7 @@ public final class ModCraftingRecipes {
                                             "LLL"
                                     ),
                                     Map.of(
-                                            'L', itemMeta(LOG, 2),
+                                            'L', item(LOG).meta(2),
                                             'B', item(BLANK_PATTERN),
                                             'C', item(CRAFTING_TABLE)
                                     )
@@ -433,7 +433,7 @@ public final class ModCraftingRecipes {
                                             'R', item(IRON_ROD)
                                     )
                             ),
-                            itemCount(IRON_BOLT, 2)
+                            item(IRON_BOLT).count(2)
                     )
             );
     public static final CraftingRecipe SAW_BRONZE_BOLT =
@@ -453,7 +453,7 @@ public final class ModCraftingRecipes {
                                             'R', item(BRONZE_ROD)
                                     )
                             ),
-                            itemCount(BRONZE_BOLT, 2)
+                            item(BRONZE_BOLT).count(2)
                     )
             );
     public static final CraftingRecipe FILE_IRON_SCREW =
