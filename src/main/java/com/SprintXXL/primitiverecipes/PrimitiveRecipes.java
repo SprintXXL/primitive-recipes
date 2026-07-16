@@ -14,7 +14,7 @@ import static com.SprintXXL.primitiverecipes.recipes.factory.ModFactoryRecipes.i
 import static com.SprintXXL.primitiverecipes.recipes.removal.RecipeRemovalRegistry.registerRecipeRemovals;
 import static com.SprintXXL.primitiverecipes.resources.ModResources.initModResources;
 
-@Mod(modid = MODID, name = NAME, version = VERSION, dependencies = "required-after:primitiverecipeapi")
+@Mod(modid = MODID, name = NAME, version = VERSION)
 public class PrimitiveRecipes {
 
     public static final Logger LOGGER = LogManager.getLogger(NAME);
